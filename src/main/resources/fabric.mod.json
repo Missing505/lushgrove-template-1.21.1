@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "lushgrove",
+	"version": "${version}",
+	"name": "LushGrove",
+	"description": "A mod for gardening",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/LushGrove"
+	},
+	"license": "MIT",
+	"icon": "assets/lushgrove/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.missing.lushgrove.LushGrove"
+		],
+		"fabric-datagen": [
+			"net.missing.lushgrove.LushGroveDataGenerator"
+		],
+		"client": [
+			"net.missing.lushgrove.LushGroveClient"
+		]
+	},
+	"mixins": [
+		"lushgrove.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.14",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
