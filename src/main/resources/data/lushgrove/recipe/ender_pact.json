@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "eae",
+    "npn",
+    "eae"
+  ],
+  "key": {
+    "e": {
+      "item": "minecraft:ender_pearl"
+    },
+    "p": {
+      "item": "lushgrove:overworld_pact"
+    },
+    "a": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "n": {
+      "item": "minecraft:netherite_ingot"
+    }
+  },
+  "result": {
+    "id": "lushgrove:ender_pact",
+    "count": 1
+  }
+}

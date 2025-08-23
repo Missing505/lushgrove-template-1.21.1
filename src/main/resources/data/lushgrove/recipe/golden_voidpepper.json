@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ggg",
+    "gpg",
+    "ggg"
+  ],
+  "key": {
+    "g": {
+      "item": "minecraft:gold_ingot"
+    },
+    "p": {
+      "item": "lushgrove:voidpepper"
+    }
+  },
+  "result": {
+    "id": "lushgrove:golden_voidpepper",
+    "count": 1
+  }
+}

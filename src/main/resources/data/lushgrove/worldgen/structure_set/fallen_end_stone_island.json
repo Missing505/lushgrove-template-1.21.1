@@ -1,0 +1,17 @@
+{
+  "structures": [
+    {
+      "structure": "lushgrove:fallen_end_stone_island",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+
+    "salt": 5948373065,
+
+    "spacing": 12,
+
+    "separation": 4
+  }
+}
