@@ -10,8 +10,8 @@ import net.missing.lushgrove.LushGrove;
 
 public record TeleportC2SPacket(Vec3d pos) implements CustomPayload {
 
-    public static final Identifier HOLO_MODE_PAYLOAD_ID = Identifier.of(LushGrove.MOD_ID, "teleport_packet");
-    public static final Id<TeleportC2SPacket> ID = new Id<>(HOLO_MODE_PAYLOAD_ID);
+    public static final Identifier TELEPORT_PAYLOAD_ID = Identifier.of(LushGrove.MOD_ID, "teleport_packet");
+    public static final Id<TeleportC2SPacket> ID = new Id<>(TELEPORT_PAYLOAD_ID);
     public static final PacketCodec<RegistryByteBuf, TeleportC2SPacket> CODEC;
 
     public TeleportC2SPacket(Vec3d pos) {

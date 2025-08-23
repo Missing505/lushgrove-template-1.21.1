@@ -1,0 +1,9 @@
+{
+  "stages": [
+    {
+      "type": "veil:blit",
+      "shader": "lushgrove:end_vignette",
+      "in": "minecraft:main"
+    }
+  ]
+}

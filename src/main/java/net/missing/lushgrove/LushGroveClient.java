@@ -1,5 +1,7 @@
 package net.missing.lushgrove;
 
+import foundry.veil.api.client.render.VeilRenderSystem;
+import foundry.veil.api.client.render.shader.program.ShaderProgram;
 import foundry.veil.api.event.VeilPostProcessingEvent;
 import foundry.veil.api.event.VeilRenderLevelStageEvent;
 import net.fabricmc.api.ClientModInitializer;
@@ -15,12 +17,15 @@ import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
 import net.missing.lushgrove.block.ModBlocks;
 import net.missing.lushgrove.effect.ModEffects;
 import net.missing.lushgrove.packet.TeleportC2SPacket;
 import org.joml.Vector3f;
 import org.lwjgl.glfw.GLFW;
+
+import java.util.Random;
 
 public class LushGroveClient implements ClientModInitializer {
 
@@ -29,6 +34,9 @@ public class LushGroveClient implements ClientModInitializer {
     public static float buildupTime = 0;
     public static Vec3d teleportPos;
 
+    float easeOutCirc(float x) {
+        return (float)Math.sqrt(1f - Math.pow(x - 1f, 2f));
+    }
     @Override
     public void onInitializeClient() {
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), ModBlocks.ANEMONE_HARMONY);
@@ -49,6 +57,13 @@ public class LushGroveClient implements ClientModInitializer {
                     LushGroveClient.blocksMoved = 5;
                 }
             }
+            ShaderProgram shader = VeilRenderSystem.setShader(Identifier.of(LushGrove.MOD_ID, "end_vignette"));
+
+            if (shader == null) {
+                return;
+            }
+
+            shader.getOrCreateUniform("STime").setFloat(easeOutCirc(LushGroveClient.blocksMoved/5)*5);
         });
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
@@ -64,6 +79,13 @@ public class LushGroveClient implements ClientModInitializer {
                             blocksMoved = 0;
                             client.execute(() -> {
                                 ClientPlayNetworking.send(new TeleportC2SPacket(teleportPos));
+                                ShaderProgram shader = VeilRenderSystem.setShader(Identifier.of(LushGrove.MOD_ID, "end_vignette"));
+
+                                if (shader == null) {
+                                    return;
+                                }
+
+                                shader.getOrCreateUniform("Seed").setFloat(new Random().nextFloat(-9999,9999));
                             });
                         }
                         buildupTime = 0;
