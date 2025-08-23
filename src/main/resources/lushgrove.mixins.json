@@ -3,12 +3,18 @@
 	"package": "net.missing.lushgrove.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"ExampleMixin"
+		"CameraDetacherMixin",
+		"SlowDownMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
 	},
 	"overwrites": {
 		"requireAnnotations": true
-	}
+	},
+	"client": [
+		"FadeHandMixin",
+		"FovRiserMixin",
+		"NoMovementWhileTeleportingMixin"
+	]
 }
