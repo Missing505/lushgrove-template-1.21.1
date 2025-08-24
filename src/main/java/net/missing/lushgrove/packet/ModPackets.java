@@ -13,9 +13,12 @@ public class ModPackets {
         initS2C();
     }
     private static void initS2C(){
+        PayloadTypeRegistry.playC2S().register(TeleportC2SPacket.ID, TeleportC2SPacket.CODEC);
+        ServerPlayNetworking.registerGlobalReceiver(TeleportC2SPacket.ID, ((teleportC2SPacket, context) -> {
+            context.player().teleport(teleportC2SPacket.pos().x,teleportC2SPacket.pos().y,teleportC2SPacket.pos().z,true);
+        }));
     }
     private static void initC2S(){
-        registerServerReceiverPacket(TeleportPacket.ID, TeleportPacket.PACKET_CODEC);
     }
     private static <T extends ReceiverPacket<ClientPlayNetworking.Context>> void registerClientReceiverPacket(CustomPayload.Id<T> packetId, PacketCodec<? super RegistryByteBuf, T> packetCodec){
         PayloadTypeRegistry.playS2C().register(packetId, packetCodec);
