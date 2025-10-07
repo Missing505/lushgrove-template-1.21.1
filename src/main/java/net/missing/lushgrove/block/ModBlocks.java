@@ -1,6 +1,5 @@
 package net.missing.lushgrove.block;
 
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.entity.effect.StatusEffects;
@@ -29,6 +28,20 @@ public class ModBlocks {
 
     public static final Block ANEMONE_HARMONY_POT = register("anemone_harmony_pot",
             Blocks.createFlowerPotBlock(ANEMONE_HARMONY));
+
+    public static final Block BRAMBLE = registerBlock(
+            "bramble",
+            new DeadBushBlock(
+                    AbstractBlock.Settings.create()
+                            .mapColor(MapColor.GREEN)
+                            .replaceable()
+                            .noCollision()
+                            .breakInstantly()
+                            .sounds(BlockSoundGroup.GRASS)
+                            .burnable()
+                            .pistonBehavior(PistonBehavior.DESTROY)
+            )
+    );
 
     public static final Block VOIDPEPPER_CROP = registerBlockWithoutItem("voidpepper_crop",
             new VoidpepperCropBlock(AbstractBlock.Settings.create()

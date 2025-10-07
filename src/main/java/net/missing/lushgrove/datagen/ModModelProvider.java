@@ -17,6 +17,8 @@ public class ModModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.ANEMONE_HARMONY, ModBlocks.ANEMONE_HARMONY_POT, BlockStateModelGenerator.TintType.NOT_TINTED);
 
+        blockStateModelGenerator.registerTintableCross(ModBlocks.BRAMBLE, BlockStateModelGenerator.TintType.TINTED);
+
         blockStateModelGenerator.registerCrop(ModBlocks.VOIDPEPPER_CROP, VoidpepperCropBlock.AGE, 0, 1, 2, 3, 4, 5, 6);
     }
 

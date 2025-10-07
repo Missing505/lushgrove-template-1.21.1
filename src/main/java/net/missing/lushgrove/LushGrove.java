@@ -11,6 +11,7 @@ import net.missing.lushgrove.block.ModBlocks;
 import net.missing.lushgrove.effect.ModEffects;
 import net.missing.lushgrove.item.ModItems;
 import net.missing.lushgrove.packet.ModPackets;
+import net.missing.lushgrove.world.gen.ModWorldGeneration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,6 +31,7 @@ public class LushGrove implements ModInitializer {
 		ModBlocks.registerModBlocks();
 		ModEffects.registerEffects();
 		ModPackets.init();
+		ModWorldGeneration.generateModWorldGen();
 		ServerTickEvents.START_WORLD_TICK.register(serverWorld ->
 		{
 			serverWorld.getPlayers().forEach(serverPlayerEntity ->

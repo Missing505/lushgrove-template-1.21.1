@@ -15,16 +15,12 @@ import net.missing.lushgrove.item.custom.OverworldPactItem;
 
 public class ModItems {
 
-
-
     public static final Item VOIDPEPPER = registerItem("voidpepper", new Item(new Item.Settings().food(ModFoodComponents.VOIDPEPPER)));
     public static final Item GOLDENVOIDPEPPER = registerItem("golden_voidpepper", new Item(new Item.Settings().food(ModFoodComponents.GOLDENVOIDPEPPER)));
-
     public static final Item VOIDPEPPER_SEEDS = registerItem("voidpepper_seeds",
             new AliasedBlockItem(ModBlocks.VOIDPEPPER_CROP, new Item.Settings()));
 
     public static final Item ENDER_PACT = registerItem("ender_pact", new EnderPactItem(new Item.Settings()));
-
     public static final Item OVERWORLD_PACT = registerItem("overworld_pact", new OverworldPactItem(new Item.Settings()));
 
     private static Item registerItem(String name, Item item) {
